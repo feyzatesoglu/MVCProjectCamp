@@ -1,8 +1,10 @@
-﻿using EntityLayer.Concrete;
+﻿using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +21,11 @@ namespace DataAccessLayer.Concrete.Repositories
             c.SaveChanges();
         }
 
+        public writer Get(Expression<Func<writer, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Insert(writer p)
         {
             _object.Add(p);
@@ -30,15 +37,24 @@ namespace DataAccessLayer.Concrete.Repositories
             return _object.ToList();
         }
 
-        public List<Category> List(Expression<Func<Category, bool>> filter)
+        public List<writer> List(Expression<Func<writer, bool>> filter)
         {
             throw new NotImplementedException();
         }
+
+        //public List<Category> List(Expression<Func<Category, bool>> filter)
+        //{
+        //    //
+        //}
 
         public void Update(Category p)
         {
             c.SaveChanges();
         }
 
+        public void Update(writer p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
